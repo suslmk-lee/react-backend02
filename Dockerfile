@@ -1,7 +1,7 @@
 # backend/Dockerfile
 
 # 1단계: 빌드
-FROM golang:1.18-alpine AS builder
+FROM golang:1.22-alpine AS builder
 
 # 환경 변수 설정
 ENV GO111MODULE=on \

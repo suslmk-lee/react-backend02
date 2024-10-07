@@ -13,10 +13,13 @@ spec:
         app: backend
     spec:
       containers:
-        - name: backend
-          image: your-docker-repo/backend:latest
+        - name: edge-be-sample02
+          image: 44ce789b-kr1-registry.container.nhncloud.com/container-platform-registry/edge-be-sample02:latest
           ports:
             - containerPort: 8080
+      imagePullSecrets:
+        - name: ncr
+---
 
 ---
 apiVersion: v1
