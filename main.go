@@ -34,6 +34,13 @@ func main() {
 	mux.HandleFunc("/api/data", dataHandler)
 
 	// CORS 설정 추가
-	handler := cors.Default().Handler(mux)
+	c := cors.New(cors.Options{
+		AllowedOrigins: []string{
+			"http://localhost:3000",       // 로컬 개발 환경
+			"http://133.186.228.94:31030", // 배포 환경
+		},
+		AllowCredentials: true,
+	})
+	handler := c.Handler(mux)
 	http.ListenAndServe(":8080", handler)
 }
